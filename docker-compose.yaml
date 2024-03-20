@@ -1,0 +1,46 @@
+services:
+  school_db:
+    container_name: school_db
+    image: postgres:13.0-alpine
+    volumes:
+      - school_data:/var/lib/postgresql/data/
+    env_file:
+      - .db.env
+    ports:
+      - "${DB_CONTAINER_PORT}:${DB_PORT}"
+    restart: always
+    networks:
+      schoolnetwork:
+        ipv4_address: 10.3.0.2
+    hostname: school_db
+
+  school_django:
+    container_name: school_django
+    build:
+      context: .
+      args:
+        - REQUIREMENTS_PATH=${REQUIREMENTS_PATH}
+    command: ${BACKEND_COMMAND}
+    volumes:
+      - .:/home/app/
+      - ${MEDIA_ROOT}:/home/app/media
+    ports:
+      - "${BACKEND_CONTAINER_PORT}:${BACKEND_PORT}"
+    env_file:
+      - .env
+    depends_on:
+      - school_db
+    restart: always
+    networks:
+      schoolnetwork:
+        ipv4_address: 10.3.0.3
+    hostname: school_django
+
+volumes:
+  school_data:
+
+networks:
+  schoolnetwork:
+      external: true
+
+# docker network create --gateway 10.3.0.1 --subnet 10.3.0.0/16 schoolnetwork
