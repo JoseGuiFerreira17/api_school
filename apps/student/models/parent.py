@@ -1,6 +1,5 @@
 import uuid
 from django.db.models import Model, UUIDField, CharField, ForeignKey, CASCADE
-from apps.core.models import Address
 
 
 class Parent(Model):

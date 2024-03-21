@@ -1,4 +1,4 @@
 GENDER_CHOICE = [
-    ('Masculino', 'Masculino'),
-    ('Femenino', 'Femenino'),
+    ("Masculino", "Masculino"),
+    ("Femenino", "Femenino"),
 ]
