@@ -24,3 +24,6 @@ lint:
 
 runserver:
 	docker compose up
+
+freeze:
+	pip freeze > requirements.txt
