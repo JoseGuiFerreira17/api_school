@@ -12,8 +12,8 @@ def validate_cpf(value):
 
     # Verificar se todos os dígitos são iguais
     if cpf == cpf[0] * 11:
-        raise ValidationError('CPF inválido')
-    
+        raise ValidationError("CPF inválido")
+
     # Calcular dígitos verificadores
     sum = 0
     weights = [10, 9, 8, 7, 6, 5, 4, 3, 2]
@@ -35,10 +35,10 @@ def validate_cpf(value):
     else:
         digit2 = 11 - remainder
 
-     # Verificar se os dígitos verificadores estão corretos
+    # Verificar se os dígitos verificadores estão corretos
     if int(cpf[9]) != digit1 or int(cpf[10]) != digit2:
-        raise ValidationError('CPF inválido')
-    
+        raise ValidationError("CPF inválido")
+
     if check_cpf_in_student(value):
         raise ValidationError("CPF já cadastrado")
 
