@@ -14,4 +14,4 @@ class Parent(Model):
         verbose_name_plural = "Responsáveis"
 
     def __str__(self):
-        return self.name
+        return f"{self.mother_name} e {self.father_name}" if self.father_name else self.mother_name

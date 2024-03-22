@@ -25,8 +25,8 @@ class Student(Model):
     name = CharField("Nome", max_length=100)
     gender = CharField("Sexo", max_length=9, choices=GENDER_CHOICE)
     birth_date = DateField("Data de Nascimento")
-    rg = CharField("RG", max_length=9, null=True, blank=True)
-    cpf = CharField("CPF", max_length=11)
+    rg = CharField("RG", max_length=15, null=True, blank=True)
+    cpf = CharField("CPF", max_length=14)
     parent = ForeignKey(
         "student.Parent", verbose_name="Informações dos responsáveis", on_delete=CASCADE
     )
