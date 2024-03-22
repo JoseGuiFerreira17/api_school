@@ -6,6 +6,7 @@ from apps.student.api.serializers.student import (
 )
 from apps.student.models import Student
 
+
 class StudentViewSet(BaseModelViewSet):
     serializer_class = StudentListSerializer
     queryset = Student.objects.all()

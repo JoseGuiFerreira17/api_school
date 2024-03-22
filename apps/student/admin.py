@@ -15,7 +15,10 @@ class StudentAdmin(admin.ModelAdmin):
     list_display = ["name", "gender", "registration", "age"]
     search_fields = ["name", "registration"]
     fieldsets = [
-        ("Informações básicas", {"fields": ["name", "gender", "registration", "birth_date"]}),
+        (
+            "Informações básicas",
+            {"fields": ["name", "gender", "registration", "birth_date"]},
+        ),
         ("Documentos", {"fields": ["cpf", "rg", "file_cpf", "file_rg"]}),
         ("Responsável", {"fields": ["parent"]}),
     ]

@@ -44,6 +44,7 @@ class StudentDetailSerializer(ModelSerializer):
 
 class StudentCreateSerializer(ModelSerializer):
     parent = ParentSerializer()
+
     class Meta:
         model = Student
         fields = [
