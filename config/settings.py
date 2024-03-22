@@ -20,6 +20,7 @@ DJANGO_APPS = [
 
 THIRD_PARTY_APPS = [
     "rest_framework",
+    "drf_spectacular",
 ]
 
 LOCAL_APPS = [
@@ -78,6 +79,17 @@ AUTH_PASSWORD_VALIDATORS = [
         "NAME": "django.contrib.auth.password_validation.NumericPasswordValidator",
     },
 ]
+
+SPECTACULAR_SETTINGS = {
+    'TITLE': 'School API',
+    'DESCRIPTION': 'API de Gerenciamento de Alunos',
+    'VERSION': '0.0.1',
+    'SERVE_INCLUDE_SCHEMA': False,
+}
+
+REST_FRAMEWORK = {
+    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
+}
 
 LANGUAGE_CODE = "pt-br"
 
