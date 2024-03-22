@@ -2,6 +2,14 @@ GENDER_CHOICE = [
     ("Masculino", "Masculino"),
     ("Femenino", "Femenino"),
 ]
+
+DEGREE_CHOICE = [
+    ("Grad.", "Graduado"),
+    ("Esp.", "Especialista"),
+    ("Me.", "Mestre"),
+    ("Dr.", "Doutor"),
+]
+
 STATE_CHOICE = [
     ("AC", "Acre"),
     ("AL", "Alagoas"),
