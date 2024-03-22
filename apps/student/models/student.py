@@ -1,5 +1,13 @@
 import uuid
-from django.db.models import Model, UUIDField, CharField, DateField, ForeignKey, FileField, CASCADE
+from django.db.models import (
+    Model,
+    UUIDField,
+    CharField,
+    DateField,
+    ForeignKey,
+    FileField,
+    CASCADE,
+)
 from apps.core.utils import GENDER_CHOICE
 
 
@@ -19,8 +27,10 @@ class Student(Model):
     birth_date = DateField("Data de Nascimento")
     rg = CharField("RG", max_length=9, null=True, blank=True)
     cpf = CharField("CPF", max_length=11)
-    parent = ForeignKey("student.Parent", verbose_name="Informações dos responsáveis", on_delete=CASCADE)
-    flie_rg = FileField("Arquivo RG", upload_to=upload_to_rg, blank=True, null=True)
+    parent = ForeignKey(
+        "student.Parent", verbose_name="Informações dos responsáveis", on_delete=CASCADE
+    )
+    file_rg = FileField("Arquivo RG", upload_to=upload_to_rg, blank=True, null=True)
     file_cpf = FileField("Arquivo CPF", upload_to=upload_to_cpf, blank=True, null=True)
 
     class Meta:
@@ -28,7 +38,9 @@ class Student(Model):
         verbose_name_plural = "Alunos"
 
     def __str__(self):
-        return self.name if not self.registration else f"{self.registration}-{self.name}"
+        return (
+            self.name if not self.registration else f"{self.registration}-{self.name}"
+        )
 
     @property
     def age(self):
