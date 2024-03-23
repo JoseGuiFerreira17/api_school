@@ -1,3 +1,4 @@
+from datetime import timedelta
 from pathlib import Path
 from os import environ
 
@@ -98,6 +99,12 @@ REST_FRAMEWORK = {
         "rest_framework_simplejwt.authentication.JWTAuthentication",
     ],
     "DEFAULT_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema",
+}
+
+SIMPLE_JWT = {
+    "ACCESS_TOKEN_LIFETIME": timedelta(minutes=int(environ.get("ACCESS_TOKEN_LIFETIME", default=5))),
+    "REFRESH_TOKEN_LIFETIME": timedelta(minutes=int(environ.get("REFRESH_TOKEN_LIFETIME", default=10))),
+    "TOKEN_OBTAIN_SERIALIZER": "apps.accounts.api.serializers.TokenObtainPairSerializer",
 }
 
 LANGUAGE_CODE = "pt-br"
