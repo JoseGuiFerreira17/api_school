@@ -1,4 +1,7 @@
-from apps.teacher.api.serializers.teacher import TeacherListSerializer, TeacherCreateSerializer
+from apps.teacher.api.serializers.teacher import (
+    TeacherListSerializer,
+    TeacherCreateSerializer,
+)
 
 
 __all__ = [

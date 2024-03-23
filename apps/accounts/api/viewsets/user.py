@@ -1,13 +1,19 @@
 from rest_framework.decorators import action
 from rest_framework.response import Response
+from rest_framework.permissions import IsAuthenticated
 
-from apps.accounts.api.serializers import UserUpdatePasswordSerializer, UserCreateSerializer, UserListSerializer
+from apps.accounts.api.serializers import (
+    UserUpdatePasswordSerializer,
+    UserCreateSerializer,
+    UserListSerializer,
+)
 from apps.accounts.models import User
 from apps.core.api.viewsets import BaseModelViewSet
 
 
 class UserViewSet(BaseModelViewSet):
     model = User
+    permission_classes = [IsAuthenticated]
     serializer_class = UserListSerializer
     action_serializer_classes = {
         "create": UserCreateSerializer,

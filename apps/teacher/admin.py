@@ -5,11 +5,30 @@ from apps.teacher.models import Teacher
 @admin.register(Teacher)
 class TeacherAdmin(admin.ModelAdmin):
     list_display = ("name", "email", "phone")
-    search_fields = ("name", "degree", "phone", "cpf",)
+    search_fields = (
+        "name",
+        "degree",
+        "phone",
+        "cpf",
+    )
     list_filter = ("is_active", "is_staff")
     readonly_fields = ("id", "created_at", "modified_at")
     fieldsets = (
-        ("Informações Básicas", {"fields": ( "name", "cpf", "birth_date", "gender", "degree", "email", "phone", "address")}),
+        (
+            "Informações Básicas",
+            {
+                "fields": (
+                    "name",
+                    "cpf",
+                    "birth_date",
+                    "gender",
+                    "degree",
+                    "email",
+                    "phone",
+                    "address",
+                )
+            },
+        ),
         (
             "Permissões",
             {
@@ -20,7 +39,7 @@ class TeacherAdmin(admin.ModelAdmin):
                 )
             },
         ),
-        ("Senha", {"fields": ("password", )}),
+        ("Senha", {"fields": ("password",)}),
     )
     ordering = ("-created_at",)
     actions = ["activate_teachers", "deactivate_teachers"]
@@ -34,6 +53,3 @@ class TeacherAdmin(admin.ModelAdmin):
         queryset.update(is_active=False)
 
     deactivate_teachers.short_description = "Desativar professores"
-
-
-

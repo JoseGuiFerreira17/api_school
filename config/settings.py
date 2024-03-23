@@ -1,3 +1,4 @@
+from datetime import timedelta
 from pathlib import Path
 from os import environ
 
@@ -21,6 +22,7 @@ DJANGO_APPS = [
 THIRD_PARTY_APPS = [
     "rest_framework",
     "drf_spectacular",
+    "rest_framework_simplejwt",
 ]
 
 LOCAL_APPS = [
@@ -92,7 +94,21 @@ SPECTACULAR_SETTINGS = {
 }
 
 REST_FRAMEWORK = {
+    "DEFAULT_PAGINATION_CLASS": "rest_framework.pagination.LimitOffsetPagination",
+    "DEFAULT_AUTHENTICATION_CLASSES": [
+        "rest_framework_simplejwt.authentication.JWTAuthentication",
+    ],
     "DEFAULT_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema",
+}
+
+SIMPLE_JWT = {
+    "ACCESS_TOKEN_LIFETIME": timedelta(
+        minutes=int(environ.get("ACCESS_TOKEN_LIFETIME", default=5))
+    ),
+    "REFRESH_TOKEN_LIFETIME": timedelta(
+        minutes=int(environ.get("REFRESH_TOKEN_LIFETIME", default=10))
+    ),
+    "TOKEN_OBTAIN_SERIALIZER": "apps.accounts.api.serializers.TokenObtainPairSerializer",
 }
 
 LANGUAGE_CODE = "pt-br"
