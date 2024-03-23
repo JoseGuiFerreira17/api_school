@@ -27,14 +27,6 @@ class User(AbstractBaseUser, PermissionsMixin):
         null=True,
         validators=[validate_cpf],
     )
-    address = ForeignKey(
-        "core.Address",
-        verbose_name="endereço",
-        on_delete=PROTECT,
-        blank=True,
-        null=True,
-        related_name="user_address",
-    )
 
     is_staff = BooleanField(verbose_name="Pode acessar o painel", default=True)
     is_active = BooleanField(verbose_name="ativo", default=True)
