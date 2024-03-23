@@ -24,6 +24,7 @@ class TeacherListSerializer(ModelSerializer):
             "modified_at": {"read_only": True},
         }
 
+
 class TeacherCreateSerializer(ModelSerializer):
     address = AddressSerializer()
 

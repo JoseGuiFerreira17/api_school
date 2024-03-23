@@ -1,4 +1,6 @@
-from rest_framework_simplejwt.serializers import TokenObtainPairSerializer as BaseTokenObtainPairSerializer
+from rest_framework_simplejwt.serializers import (
+    TokenObtainPairSerializer as BaseTokenObtainPairSerializer,
+)
 
 
 class TokenObtainPairSerializer(BaseTokenObtainPairSerializer):

@@ -1,6 +1,5 @@
 from rest_framework.serializers import ModelSerializer, CharField, ValidationError
 from apps.accounts.models import User
-from apps.core.api.serializers import AddressSerializer
 
 
 class UserListSerializer(ModelSerializer):
@@ -20,8 +19,6 @@ class UserListSerializer(ModelSerializer):
         ]
         extra_kwargs = {
             "id": {"read_only": True},
-            "created_at": {"read_only": True},
-            "modified_at": {"read_only": True},
             "created_at": {"read_only": True},
             "modified_at": {"read_only": True},
         }
@@ -44,8 +41,6 @@ class UserCreateSerializer(ModelSerializer):
         ]
         extra_kwargs = {
             "id": {"read_only": True},
-            "created_at": {"read_only": True},
-            "modified_at": {"read_only": True},
             "created_at": {"read_only": True},
             "modified_at": {"read_only": True},
         }

@@ -7,8 +7,6 @@ from django.db.models import (
     DateField,
     DateTimeField,
     EmailField,
-    ForeignKey,
-    PROTECT,
 )
 from apps.accounts.managers import UserManager
 from apps.core.validators import validate_cpf
@@ -45,14 +43,14 @@ class User(AbstractBaseUser, PermissionsMixin):
 
     def __str__(self):
         return self.name
-    
+
     @property
     def teacher_user(self):
         from apps.teacher.models import Teacher
 
-        teacher = Teacher.objects.get_or_none(user=self)
+        teacher = Teacher.objects.get_or_none(pk=self.pk)
         if teacher:
-            return teacher  
+            return teacher
         return None
 
     @property

@@ -102,8 +102,12 @@ REST_FRAMEWORK = {
 }
 
 SIMPLE_JWT = {
-    "ACCESS_TOKEN_LIFETIME": timedelta(minutes=int(environ.get("ACCESS_TOKEN_LIFETIME", default=5))),
-    "REFRESH_TOKEN_LIFETIME": timedelta(minutes=int(environ.get("REFRESH_TOKEN_LIFETIME", default=10))),
+    "ACCESS_TOKEN_LIFETIME": timedelta(
+        minutes=int(environ.get("ACCESS_TOKEN_LIFETIME", default=5))
+    ),
+    "REFRESH_TOKEN_LIFETIME": timedelta(
+        minutes=int(environ.get("REFRESH_TOKEN_LIFETIME", default=10))
+    ),
     "TOKEN_OBTAIN_SERIALIZER": "apps.accounts.api.serializers.TokenObtainPairSerializer",
 }
 
