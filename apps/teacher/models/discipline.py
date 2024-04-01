@@ -7,7 +7,11 @@ class Discipline(Model):
     name = CharField("Nome", max_length=100)
     workload = CharField("Carga Horária", max_length=100)
     teacher = ForeignKey(
-        "teacher.Teacher", verbose_name="Professor", on_delete=CASCADE, null=True, blank=True
+        "teacher.Teacher",
+        verbose_name="Professor",
+        on_delete=CASCADE,
+        null=True,
+        blank=True,
     )
 
     class Meta:
