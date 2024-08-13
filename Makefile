@@ -26,7 +26,7 @@ test:
 
 lint:
 	black .
-	flake8 . --extend-exclude=migrations,venv --max-line-length 120
+	flake8 . --extend-exclude=migrations,venv --max-line-length 79
 
 runserver:
 	docker compose up
