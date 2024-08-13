@@ -47,16 +47,16 @@ Aqui estão os comandos definidos no `Makefile` e suas funções:
   cp example.env .env
   cp example.db.env .db.env
 
-- **`create_network`**:Cria uma rede Docker personalizada para a aplicação.
+- **`create_network`**: Cria uma rede Docker personalizada para a aplicação.
 
   ```bash
    docker network create --gateway 10.7.0.1 --subnet 10.7.0.0/16 schoolnetwork
 
-- **`build`**:Constrói e inicia os containers Docker definidos no `docker-compose.yml`.
+- **`build`**: Constrói e inicia os containers Docker definidos no `docker-compose.yml`.
   ```bash
    docker compose up --build
 
-- **`migrate`**:Aplica as migrações do banco de dados usando o Django.
+- **`migrate`**: Aplica as migrações do banco de dados usando o Django.
   ```bash
    docker compose exec school_django python manage.py migrate
 
