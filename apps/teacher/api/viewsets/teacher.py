@@ -1,6 +1,9 @@
 from rest_framework.permissions import IsAuthenticated
 from apps.teacher.models import Teacher
-from apps.teacher.api.serializers import TeacherCreateSerializer, TeacherListSerializer
+from apps.teacher.api.serializers import (
+    TeacherCreateSerializer,
+    TeacherListSerializer,
+)
 from apps.core.api.viewsets import BaseModelViewSet
 
 

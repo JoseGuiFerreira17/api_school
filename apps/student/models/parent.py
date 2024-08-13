@@ -7,7 +7,9 @@ class Parent(Model):
     mother_name = CharField("Nome da Mãe", max_length=100)
     father_name = CharField("Nome do Pai", max_length=100)
     phone = CharField("Telefone", max_length=11, null=True, blank=True)
-    address = ForeignKey("core.Address", verbose_name="Endereço", on_delete=CASCADE)
+    address = ForeignKey(
+        "core.Address", verbose_name="Endereço", on_delete=CASCADE
+    )
 
     class Meta:
         verbose_name = "Responsável"

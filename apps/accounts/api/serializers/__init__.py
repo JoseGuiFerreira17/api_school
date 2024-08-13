@@ -3,7 +3,9 @@ from apps.accounts.api.serializers.user import (
     UserListSerializer,
     UserUpdatePasswordSerializer,
 )
-from apps.accounts.api.serializers.token_obtain import TokenObtainPairSerializer
+from apps.accounts.api.serializers.token_obtain import (
+    TokenObtainPairSerializer,
+)
 
 
 __all__ = [

@@ -8,7 +8,11 @@ class Teacher(User):
         "gênero", max_length=9, choices=GENDER_CHOICE, null=True, blank=True
     )
     degree = CharField(
-        "formação", max_length=255, choices=DEGREE_CHOICE, null=True, blank=True
+        "formação",
+        max_length=255,
+        choices=DEGREE_CHOICE,
+        null=True,
+        blank=True,
     )
     address = ForeignKey(
         "core.Address",

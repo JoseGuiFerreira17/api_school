@@ -1,4 +1,8 @@
-from rest_framework.serializers import ModelSerializer, CharField, ValidationError
+from rest_framework.serializers import (
+    ModelSerializer,
+    CharField,
+    ValidationError,
+)
 from apps.accounts.models import User
 
 

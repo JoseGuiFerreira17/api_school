@@ -29,7 +29,7 @@ jobs:
       - name: Run linting
         run: |
           pip install flake8
-          flake8 .
+          flake8 . --extend-exclude=dist,build,static,migrations,venv --max-line-length 79
 
       - name: Set up database
         run: |

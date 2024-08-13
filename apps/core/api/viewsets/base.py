@@ -44,14 +44,20 @@ class BaseGenericViewSet(GenericViewSet):
 
     @property
     def search_fields(self):
-        return self.filterset_class._meta.search_fields if self.filterset_class else []
+        return (
+            self.filterset_class._meta.search_fields
+            if self.filterset_class
+            else []
+        )
 
 
 class ListModelViewSet(BaseGenericViewSet, ListModelMixin):
     pass
 
 
-class BaseReadOnlyModelViewSet(BaseGenericViewSet, RetrieveModelMixin, ListModelMixin):
+class BaseReadOnlyModelViewSet(
+    BaseGenericViewSet, RetrieveModelMixin, ListModelMixin
+):
     pass
 
 

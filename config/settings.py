@@ -66,7 +66,9 @@ WSGI_APPLICATION = "config.wsgi.application"
 
 DATABASES = {
     "default": {
-        "ENGINE": environ.get("DB_ENGINE", default="django.db.backends.postgresql"),
+        "ENGINE": environ.get(
+            "DB_ENGINE", default="django.db.backends.postgresql"
+        ),
         "NAME": environ.get("DB_NAME", default="github-actions"),
         "USER": environ.get("DB_USER", default="postgres"),
         "PASSWORD": environ.get("DB_PASSWORD", default="postgres"),
