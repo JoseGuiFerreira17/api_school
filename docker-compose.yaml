@@ -11,7 +11,7 @@ services:
     restart: always
     networks:
       schoolnetwork:
-        ipv4_address: 10.3.0.2
+        ipv4_address: 10.7.0.2
     hostname: school_db
 
   school_django:
@@ -33,7 +33,7 @@ services:
     restart: always
     networks:
       schoolnetwork:
-        ipv4_address: 10.3.0.3
+        ipv4_address: 10.7.0.3
     hostname: school_django
 
 volumes:
@@ -42,5 +42,3 @@ volumes:
 networks:
   schoolnetwork:
       external: true
-
-# docker network create --gateway 10.3.0.1 --subnet 10.3.0.0/16 schoolnetwork

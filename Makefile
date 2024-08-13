@@ -2,6 +2,12 @@ prebuild:
 	cp example.env .env
 	cp example.db.env .db.env
 
+create_network:
+	docker network create --gateway 10.7.0.1 --subnet 10.7.0.0/16 schoolnetwork
+
+build:
+	docker compose up --build
+
 migrate:
 	docker compose exec school_django python manage.py migrate
 
